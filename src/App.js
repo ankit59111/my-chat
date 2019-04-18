@@ -1,28 +1,37 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import path10 from './path-10.svg';
+import path3 from './path-3.png';
 import './App.css';
+import LoginComponent from "./login";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props)
+        this.state = {
+            type: this.props.match.params.id
+        }
+    }
+
+    componentDidMount() {
+        if (!this.props.match.params.id) {
+            this.setState({
+                type: "login"
+            })
+        }
+    }
+
+    render() {
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <img className={"path1"} src={path10} alt={"background1"}/>
+                    <img className={"path2"} alt={"background2"} style={{"width": "543px", "height": "267px", "objectFit": "contain"}}
+                         src={path3}/>
+                    <LoginComponent {...this.props} type={this.state.type}/>
+                </header>
+            </div>
+        );
+    }
 }
 
 export default App;

@@ -8,7 +8,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-image: linear-gradient(121deg, #0074f0, #0053ab);
+  opacity: 0.75;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,8 +17,24 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
+  width: 1440px;
 }
+.path1{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: linear-gradient(104deg, #0074f0, #0053ab);
+  object-fit: contain;
+  width: 1440px;
+  height: 349.1px;
 
+}
+.path2{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
 .App-link {
   color: #61dafb;
 }

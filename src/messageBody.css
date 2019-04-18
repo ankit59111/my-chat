@@ -1,0 +1,61 @@
+.container {
+    border: 2px solid #dedede;
+    background-image: linear-gradient(103deg, #0074f0, #0053ab);
+    color:white;
+    border-radius: 0px 17px 17px 17px;
+    padding: 10px;
+    margin: 10px 7px 0;
+    width: fit-content;
+    box-shadow: 0 2px 6px 0 rgba(0, 94, 194, 0.45);
+}
+
+.darker {
+    float: right;
+    border-color: #ccc;
+    background-color: white;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.time-right {
+    float: right;
+    color: #ffffff;
+}
+
+.time-left {
+    float: left;
+    color: #999;
+}
+
+.styleRight  {
+    float:right;
+    background-color:white;
+    display: block;
+}
+
+.styleRight .container{
+    background-image: linear-gradient(103deg, #ffffff, #ffffff);
+    color: rgba(33,42,57,0.8);
+    border-radius: 17px 0px 17px 17px;
+}
+
+.card-body{
+    display: block;
+    margin-bottom: fill;
+    overflow: hidden;
+}
+
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#basic-text1{
+    backgroundColor: white;
+    background-image: linear-gradient(103deg, #0074f0, #0053ab);
+    borderLeft: none;
+}

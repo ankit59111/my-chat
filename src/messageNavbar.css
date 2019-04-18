@@ -1,0 +1,14 @@
+.addBox{
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.active{
+    background-color: #0053ab;
+}
+
+.rectangle {
+    width: 4px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
