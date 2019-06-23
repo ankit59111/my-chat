@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.App-header{
+  display: flex;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  flex-flow: row;
+  flex-basis: auto;
+}
+.path1{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-image: linear-gradient(104deg, #0074f0, #0053ab);
+  object-fit: contain;
+  width: 1440px;
+  height: 349.1px;
+
+}
+.path2{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+

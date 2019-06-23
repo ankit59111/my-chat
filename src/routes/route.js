@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import {BrowserRouter,Switch,Route} from "react-router-dom";
-import MessageNavBar from "./messageNavbar";
-import App from "./App";
+import MessageNavBar from "../navbar/messageNavbar";
+import App from "../App/App";
 
 export default class Routing extends Component{
 

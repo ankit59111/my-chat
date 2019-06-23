@@ -1,26 +1,42 @@
 import React,{Component} from "react";
+import firebase from "../firebase-configure/configure";
 
 export default class SignUpForm extends Component{
+    constructor(props){
+        super(props)
+    }
 
     handleRegister(){
         let that = this;
+        let fullName = document.getElementById("fullname").value;
         let email = document.getElementById("email").value;
-        let username = document.getElementById("username").value;
         let password = document.getElementById("password").value;
         let confirmPassword = document.getElementById("password").value;
-        let mobileNumber = document.getElementById("mobilenumber").value;
 
-        fetch("http://localhost:7000/register",{
-            method:"post",
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            }),
-            body:JSON.stringify({email,password,username,confirmPassword,mobileNumber})
-        }).then((res)=>res.json())
-            .then((res)=>{
-                console.log(res)
-                that.props.history.push("/home")
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((user) => {
+                let newuser = firebase.auth().currentUser;
+                newuser =  newuser.toJSON();
+
+                if(newuser) {
+                    firebase.firestore()
+                        .collection('users')
+                        .add({
+                        uid: newuser.uid,
+                        username: fullName,
+                        email: newuser.email,
+                    }).then((doc) => {
+                        console.log("done ", doc)
+                    }).catch((err) => console.log(err));
+                }
             })
+            .catch((error) => {
+                console.log({ error: error });
+            });
+
+
     }
 
 
@@ -41,9 +57,6 @@ export default class SignUpForm extends Component{
         return (
             <div style={{"display": "block", "float": "left", "marginLeft": "13px", "marginTop": "30px"}}>
                 <input type={"text"} name={"fullName"} placeholder={"Full Name"} id={"fullname"} style={style1}/>
-                <input type={"text"} name={"userName"} placeholder={"Username"} id={"username"} style={style1}/>
-                <input type={"number"} name={"mobileNumber"} placeholder={"Mobile Number"} id={"mobilenumber"}
-                       style={style1}/>
                 <input type={"password"} name={"password"} placeholder={"Password"} id={"password"} style={style1}/>
                 <input type={"text"} name={"email"} placeholder={"email"} id={"email"} style={style1}/>
                 <button style={{
