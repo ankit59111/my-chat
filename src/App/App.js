@@ -14,17 +14,14 @@ class App extends Component {
         }
     }
 
-    static getDerivedStateFromProps(props) {
-        let that = this;
-        window.jQuery( document ).ready(function() {
-            console.log( "testing.." );
-            firebase.auth().onAuthStateChanged(user=>{
-                if(user){
-                    props.history.push('/home');
-                }
-            });
+     componentDidMount() {
+         let that = this;
+         firebase.auth().onAuthStateChanged(user => {
+             if (user) {
+                 that.props.history.push('/home');
+             }
+         });
 
-        });
     }
 
     render() {

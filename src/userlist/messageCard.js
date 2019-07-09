@@ -9,10 +9,7 @@ export default class MessageCard extends Component {
         super(props)
     }
 
-    showConversation(){
-        let id = this.props.item.uid
-        this.props.handleConversation(id);
-    }
+
     componentDidMount() {
         /*
         let message = document.getElementsByClassName("message").innerText;
@@ -24,16 +21,16 @@ export default class MessageCard extends Component {
 
     render() {
         let message = "Lorem Ipsum is the dummy text of prin sfgsd sdf sdgf sdfds f".substr(0,37);
-        const CardDiv = styled.div`display: flex;flex-direction: row;height: 85px;overflow: hidden;
+        const CardDiv = styled.div`display: flex;flex-direction: row;height: 72px;overflow: hidden;
                             justify-content: space-around;border-bottom: 1px solid #eff0f1;padding-top: 11px;`;
         const UserName = styled("h5")`margin:0`;
         return (
             <React.Fragment>
-                <CardDiv onClick={() => this.showConversation()}>
-                    <img src={ovalImage} width={"60px !important"} height={"60px !important"} alt={"oval img"}/>
+                <CardDiv>
+                    <img src={ovalImage} width={"42px !important"} height={"42px !important"} alt={"oval img"}/>
                     <div className={"col-sm-10"}>
                         <UserName>{this.props.item.username}</UserName>
-                        <p style={{"opacity": "0.8"}} className="message">{message}</p>
+                        <p style={{"opacity": "0.8","marginTop":"0px"}} className="message">{message}</p>
                     </div>
 
                 </CardDiv>

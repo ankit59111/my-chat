@@ -10,14 +10,14 @@ export default class LoginForm extends Component{
         let that = this;
        let email = document.getElementById("username").value;
         let password = document.getElementById("password").value;
-        console.log({email,password})
+
 
 
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then((user) => {
-                console.log(user.user.metadata.lastSignInTime);
+
                 user.user.getIdToken(false)
                     .then((data)=>{
                         document.cookie = `rca_token = ${data}`
